@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence-unit name="jpabook">
+    <properties>
+        <!-- 필수 속성 -->
+        <!-- JDBC 드라이버 -->
+        <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+        <!-- 데이터베이스 접속 아이디 -->
+        <property name="javax.persistence.jdbc.user" value="sa"/>
+        <!-- 데이터베이스 접속 비밀번호 -->
+        <property name="javax.persistence.jdbc.password" value=""/>
+        <!-- 데이터베이스 접속 URL -->
+        <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+        <!-- 데이터베이스 방언(Dialect) 설정 -->
+        <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+        <!-- 옵션 -->
+        <!-- 하이버네이트가 실행한 SQL 출력 -->
+        <property name="hibernate.show_sql" value="true"/>
+        <!-- 하이버네이트가 실행한 SQL을 출력할 떼 보기 쉽게 정렬 -->
+        <property name="hibernate.format_sql" value="true"/>
+        <!-- 쿼리를 출력할 때 주석도 함께 출력 -->
+        <property name="hibernate.use_sql_comments" value="true"/>
+        <!-- JPA 표준에 맞춘 새로운 키 생성 전략을 사용한다.-->
+        <property name="hibernate.id.new_generator_mapping" value="true"/>
+
+    </properties>
+</persistence-unit>
