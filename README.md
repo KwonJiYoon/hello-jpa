@@ -13,21 +13,21 @@
 
 ### 📄 Add dependencies at pom.xml
     <dependencies>
-    <!-- h2DataBase -->
-    <!-- version은 pc에 설치한 h2데이터베이스와 맞춰 주어야 한다. -->
-    <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>2.1.210</version>
-    </dependency>
-
-    <!-- hibernate -->
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-entitymanager</artifactId>
-        <version>5.3.10.Final</version>
-    </dependency>
-</dependencies>
+       <!-- h2DataBase -->
+       <!-- version은 pc에 설치한 h2데이터베이스와 맞춰 주어야 한다. -->
+       <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <version>2.1.210</version>
+       </dependency>
+   
+       <!-- hibernate -->
+       <dependency>
+           <groupId>org.hibernate</groupId>
+           <artifactId>hibernate-entitymanager</artifactId>
+           <version>5.3.10.Final</version>
+       </dependency>
+    </dependencies>
 
 ### 📄 Create persistence.xml
     <?xml version="1.0" encoding="UTF-8"?>
