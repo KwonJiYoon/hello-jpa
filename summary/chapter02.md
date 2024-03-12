@@ -82,3 +82,17 @@ Member findMember = em.find(Member.class, id);
 find() 메소드는 조회할 엔티티 타입과 @Id로 데이터베이스 테이블의 기본 키와 매핑한 식벽자 값으로 엔티티 하나를<br>
 조회하는 가장 단순한 조회 메소드이다.
 <br><br>
+
+><b> JPQL </b> <br>
+```
+List<Member> members = em.createQuery("select m from Member m", Member.class)
+                        .getResultList();
+```
+JPA는 엔티티 객체를 중심으로 개발하기에 검색을 할 때도 테이블이 아닌 엔티티 객체를 대상으로 검색해야하는 문제가 있다.<br>
+애플리케이션이 필요한 데이터만 데이터베이스에서 불러오려면 결국 검색 조건이 포함된 SQL을 사용해야한다.<br>
+JPQL이라는 객체지향 쿼리 언어로 위 문제를 해결할 수 있다.<br>
+JPQL은 <b>엔티티 객체</b>가 대상이고 SQL은 <b>데이터베이스 테이블</b>을 대상으로 한다.<br>
+
+위 코드에서 from Member은 MEMBER 테이블이 아닌 Member 엔티티 객체이고 <b>JPQL은 데이터베이스 테이블을 전혀 알지 못한다.</b><br>
+JPQL을 사용하려면 em.createQuery(JPQL, 반환타입) 메소드로 쿼리 객체를 생성한 후 getResultList() 메소드를 호출하면 된다.
+<br><br>
