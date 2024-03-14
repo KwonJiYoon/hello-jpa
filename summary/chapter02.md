@@ -24,7 +24,7 @@ name 속성을 사용하여 테이블과 매핑하였고, 이 어노테이션을
 ><b> 엔티티 매니저 팩토리 생성 </b> <br>
 JPA를 시작하려면 persistence.xml의 설정 정보를 사용해 엔티티 매니저 팩토리를 생성해야한다. <br>
 이때 사용하는 Persistence 클래스는 엔티티 매니저 팩토리를 생성해서 JPA를 사용할 수 있게 준비한다. <br>
-```
+```java
 EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpabook");
 ```
 META-INF/persistence.xml에서 이름이 jpabook인 영속성 유닛을 찾아서 엔티티 매니저 팩토리를 생성한다.<br>
@@ -34,7 +34,7 @@ JPA 구현체에 따라서 데이터베이스 커넥션 풀도 생성하므로 �
 <br><br>
 
 ><b> 엔티티 매니저 생성 </b> <br>
-```
+```java
 EntityManager em = emf.createEntityManager();
 ```
 엔티티 매지너 팩토리에서 엔티티 매니저 생성<br>
@@ -43,25 +43,25 @@ JPA의 기능 대부분이 이 엔티티 매니저가 제공하고, 대표적으
 <br><br>
 
 ><b> 종료 </b> <br>
-```
+```java
 em.close();
 ```
 사용이 끝난 엔티티 매니저는 반드시 종료해야한다.
-```
+```java
 emf.close(); 
 ```
 애플리케이션을 종료할 때 엔티티 매니저 팩토리도 종료해야한다.
 <br><br>
 
 ><b> 등록 </b> <br>
-```
+```java
 em.persist(member);
 ```
 엔티티를 저장하려면 엔티티 매니저의 persist() 메소드에 저장할 엔티티를 넘겨준다.
 <br><br>
 
 ><b> 수정 </b> <br>
-```
+```java
 member.setAge(20);
 ```
 JPA는 어떤 엔티티가 변경되었는지 추적하는 기능을 갖추고 있기 때문에, 엔티티의 값만 변경하면 update SQL을 
@@ -69,14 +69,14 @@ JPA는 어떤 엔티티가 변경되었는지 추적하는 기능을 갖추고 �
 <br><br>
 
 ><b> 삭제 </b> <br>
-```
+```java
 em.remove(member);
 ```
 엔티티를 삭제하려면 엔티티 매니저의 remove() 메소드에 삭제할 엔티티를 넘겨준다.
 <br><br>
 
 ><b> 한견 조회 </b> <br>
-```
+```java
 Member findMember = em.find(Member.class, id);
 ```
 find() 메소드는 조회할 엔티티 타입과 @Id로 데이터베이스 테이블의 기본 키와 매핑한 식벽자 값으로 엔티티 하나를<br>
@@ -84,7 +84,7 @@ find() 메소드는 조회할 엔티티 타입과 @Id로 데이터베이스 테�
 <br><br>
 
 ><b> JPQL </b> <br>
-```
+```java
 List<Member> members = em.createQuery("select m from Member m", Member.class)
                         .getResultList();
 ```
